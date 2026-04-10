@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dandelion Effect — Seeds in Motion Variations</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --terracotta: #C4704B;
+      --terracotta-dark: #A85A38;
+      --dusty-rose: #C9918A;
+      --dusty-rose-light: #E4C5C0;
+      --deep-green: #3A5A40;
+      --deep-green-dark: #2C4632;
+      --off-white: #FAF7F2;
+      --warm-cream: #F3EDE4;
+      --dark-text: #2D2A26;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--off-white);
+      color: var(--dark-text);
+      padding: 3rem 1.5rem;
+    }
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: var(--deep-green);
+    }
+    .subtitle {
+      text-align: center;
+      color: #8A8178;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .card.wide {
+      grid-column: 1 / -1;
+    }
+    .logo-area {
+      padding: 3rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+    .logo-area.bg-white { background: #fff; }
+    .logo-area.bg-cream { background: var(--warm-cream); }
+    .logo-area.bg-dark { background: var(--dark-text); }
+    .logo-area.bg-green { background: var(--deep-green); }
+    .logo-area.bg-rose { background: var(--dusty-rose-light); }
+    .logo-area.bg-terracotta { background: var(--terracotta); }
+    .card-info {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid #f0ede8;
+    }
+    .card-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.05rem;
+      color: var(--deep-green);
+      margin-bottom: 0.3rem;
+    }
+    .card-info p {
+      font-size: 0.85rem;
+      color: #8A8178;
+      line-height: 1.5;
+    }
+    .section-label {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 1.5rem 0 0.5rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--terracotta);
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .card.wide { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Seeds in Motion</h1>
+  <p class="subtitle">Six variations on your favourite concept. Same idea — seeds scattering, change spreading — explored in different moods and layouts.</p>
+
+  <div class="grid">
+
+    <!-- VARIATION 2A: Upward Drift -->
+    <div class="card">
+      <div class="logo-area bg-cream">
+        <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Seeds drifting upward from the text — like they're rising from the words -->
+          <!-- Text first, seeds floating up -->
+          <text x="30" y="100" font-family="DM Serif Display, serif" font-size="24" fill="#2D2A26" letter-spacing="0.5">the dandelion</text>
+          <text x="30" y="124" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#C4704B" letter-spacing="5">EFFECT</text>
+
+          <!-- Seeds rising upward from the text -->
+          <!-- Large seed, close -->
+          <circle cx="45" cy="68" r="3.5" fill="#C4704B"/>
+          <line x1="45" y1="72" x2="45" y2="82" stroke="#C4704B" stroke-width="0.8" opacity="0.4" stroke-linecap="round"/>
+          <line x1="45" y1="65" x2="45" y2="58" stroke="#C4704B" stroke-width="0.6" opacity="0.5" stroke-linecap="round"/>
+          <line x1="45" y1="65" x2="40" y2="59" stroke="#C4704B" stroke-width="0.6" opacity="0.4" stroke-linecap="round"/>
+          <line x1="45" y1="65" x2="50" y2="59" stroke="#C4704B" stroke-width="0.6" opacity="0.4" stroke-linecap="round"/>
+
+          <!-- Medium seed, higher -->
+          <circle cx="90" cy="48" r="2.8" fill="#C4704B" opacity="0.8"/>
+          <line x1="90" y1="51" x2="88" y2="64" stroke="#C4704B" stroke-width="0.6" opacity="0.3" stroke-linecap="round"/>
+          <line x1="90" y1="45" x2="90" y2="39" stroke="#C4704B" stroke-width="0.5" opacity="0.4" stroke-linecap="round"/>
+          <line x1="90" y1="45" x2="86" y2="40" stroke="#C4704B" stroke-width="0.5" opacity="0.3" stroke-linecap="round"/>
+          <line x1="90" y1="45" x2="94" y2="40" stroke="#C4704B" stroke-width="0.5" opacity="0.3" stroke-linecap="round"/>
+
+          <!-- Smaller seed, drifting right -->
+          <circle cx="150" cy="38" r="2.2" fill="#C9918A" opacity="0.7"/>
+          <line x1="149" y1="40" x2="145" y2="56" stroke="#C9918A" stroke-width="0.5" opacity="0.25" stroke-linecap="round"/>
+          <line x1="150" y1="36" x2="150" y2="30" stroke="#C9918A" stroke-width="0.5" opacity="0.35" stroke-linecap="round"/>
+          <line x1="150" y1="36" x2="147" y2="31" stroke="#C9918A" stroke-width="0.5" opacity="0.25" stroke-linecap="round"/>
+
+          <!-- Tiny seed, highest -->
+          <circle cx="120" cy="22" r="1.8" fill="#C9918A" opacity="0.5"/>
+          <line x1="120" y1="24" x2="118" y2="36" stroke="#C9918A" stroke-width="0.4" opacity="0.2" stroke-linecap="round"/>
+          <line x1="120" y1="20" x2="120" y2="15" stroke="#C9918A" stroke-width="0.4" opacity="0.3" stroke-linecap="round"/>
+
+          <!-- Tiniest, almost gone -->
+          <circle cx="185" cy="28" r="1.3" fill="#C9918A" opacity="0.3"/>
+          <circle cx="70" cy="30" r="1" fill="#C4704B" opacity="0.25"/>
+          <circle cx="210" cy="52" r="1.5" fill="#C9918A" opacity="0.2"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2A — Upward Drift</h3>
+        <p>Seeds rising up from the text like thoughts taking flight. Gentle, aspirational. The further they go, the more they fade — spreading quietly.</p>
+      </div>
+    </div>
+
+    <!-- VARIATION 2B: Windswept Trail -->
+    <div class="card">
+      <div class="logo-area bg-white">
+        <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Seeds swept to the right like carried by wind -->
+          <!-- Source cluster on left -->
+          <circle cx="20" cy="70" r="5" fill="#3A5A40"/>
+          <!-- Short stem -->
+          <line x1="20" y1="75" x2="20" y2="90" stroke="#3A5A40" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Wind trail of seeds sweeping right -->
+          <circle cx="38" cy="58" r="3.5" fill="#C4704B" opacity="0.95"/>
+          <circle cx="60" cy="48" r="3" fill="#C4704B" opacity="0.8"/>
+          <circle cx="84" cy="42" r="2.5" fill="#C4704B" opacity="0.65"/>
+          <circle cx="110" cy="38" r="2" fill="#C9918A" opacity="0.5"/>
+          <circle cx="135" cy="36" r="1.5" fill="#C9918A" opacity="0.35"/>
+          <circle cx="158" cy="35" r="1.2" fill="#C9918A" opacity="0.25"/>
+
+          <!-- Subtle curved path connecting them -->
+          <path d="M25 65 Q 50 50 85 42 Q 120 36 160 35" stroke="#C4704B" stroke-width="0.5" fill="none" opacity="0.12" stroke-linecap="round"/>
+
+          <!-- A few wisps on the main seeds -->
+          <line x1="38" y1="55" x2="36" y2="48" stroke="#C4704B" stroke-width="0.6" opacity="0.4"/>
+          <line x1="38" y1="55" x2="42" y2="49" stroke="#C4704B" stroke-width="0.6" opacity="0.3"/>
+          <line x1="60" y1="45" x2="58" y2="38" stroke="#C4704B" stroke-width="0.5" opacity="0.3"/>
+          <line x1="60" y1="45" x2="63" y2="39" stroke="#C4704B" stroke-width="0.5" opacity="0.25"/>
+
+          <!-- Text -->
+          <text x="20" y="112" font-family="DM Serif Display, serif" font-size="22" fill="#2D2A26" letter-spacing="0.5">the dandelion effect</text>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2B — Windswept</h3>
+        <p>A trail of seeds carried by wind from a single source. The whole name on one line underneath. Clean, directional energy. One thing leading to another.</p>
+      </div>
+    </div>
+
+    <!-- VARIATION 2C: Scattered Constellation -->
+    <div class="card">
+      <div class="logo-area bg-dark">
+        <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Seeds as a scattered constellation around the text -->
+          <!-- Ambient seeds scattered around -->
+          <circle cx="30" cy="25" r="2.5" fill="#C4704B" opacity="0.7"/>
+          <circle cx="65" cy="18" r="1.8" fill="#C4704B" opacity="0.5"/>
+          <circle cx="120" cy="12" r="2" fill="#C9918A" opacity="0.4"/>
+          <circle cx="200" cy="22" r="2.8" fill="#C4704B" opacity="0.6"/>
+          <circle cx="240" cy="35" r="1.5" fill="#C9918A" opacity="0.35"/>
+          <circle cx="18" cy="70" r="1.5" fill="#C9918A" opacity="0.3"/>
+          <circle cx="245" cy="75" r="2" fill="#C4704B" opacity="0.4"/>
+          <circle cx="50" cy="115" r="1.8" fill="#C9918A" opacity="0.3"/>
+          <circle cx="220" cy="110" r="1.2" fill="#C4704B" opacity="0.25"/>
+          <circle cx="170" cy="120" r="2.2" fill="#C9918A" opacity="0.35"/>
+
+          <!-- Fine connecting lines like a constellation -->
+          <line x1="30" y1="25" x2="65" y2="18" stroke="#C4704B" stroke-width="0.3" opacity="0.15"/>
+          <line x1="65" y1="18" x2="120" y2="12" stroke="#C4704B" stroke-width="0.3" opacity="0.1"/>
+          <line x1="120" y1="12" x2="200" y2="22" stroke="#C4704B" stroke-width="0.3" opacity="0.1"/>
+
+          <!-- Wisps on a few seeds -->
+          <line x1="30" y1="23" x2="28" y2="17" stroke="#C4704B" stroke-width="0.5" opacity="0.3"/>
+          <line x1="30" y1="23" x2="34" y2="18" stroke="#C4704B" stroke-width="0.5" opacity="0.25"/>
+          <line x1="200" y1="20" x2="198" y2="13" stroke="#C4704B" stroke-width="0.5" opacity="0.3"/>
+          <line x1="200" y1="20" x2="204" y2="14" stroke="#C4704B" stroke-width="0.5" opacity="0.25"/>
+
+          <!-- Text — centred, warm white -->
+          <text x="130" y="62" font-family="DM Serif Display, serif" font-size="26" fill="#FAF7F2" letter-spacing="1" text-anchor="middle">the dandelion</text>
+          <text x="130" y="88" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#C4704B" letter-spacing="6" text-anchor="middle">EFFECT</text>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2C — Constellation</h3>
+        <p>Seeds scattered like stars across a dark sky with fine connecting lines. The change has already happened — it's everywhere. Powerful on dark backgrounds.</p>
+      </div>
+    </div>
+
+    <!-- VARIATION 2D: Spiral Scatter -->
+    <div class="card">
+      <div class="logo-area bg-cream">
+        <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Seeds spiralling outward from a centre point -->
+          <g transform="translate(28, 10)">
+            <!-- Centre point -->
+            <circle cx="40" cy="60" r="4" fill="#3A5A40"/>
+
+            <!-- Seeds spiralling outward -->
+            <circle cx="48" cy="48" r="3" fill="#C4704B" opacity="0.9"/>
+            <circle cx="32" cy="44" r="2.8" fill="#C4704B" opacity="0.8"/>
+            <circle cx="55" cy="36" r="2.5" fill="#C4704B" opacity="0.7"/>
+            <circle cx="24" cy="52" r="2.2" fill="#C9918A" opacity="0.6"/>
+            <circle cx="52" cy="72" r="2" fill="#C9918A" opacity="0.55"/>
+            <circle cx="60" cy="24" r="1.8" fill="#C9918A" opacity="0.45"/>
+            <circle cx="18" cy="34" r="1.5" fill="#C9918A" opacity="0.35"/>
+            <circle cx="62" cy="56" r="1.5" fill="#C4704B" opacity="0.4"/>
+            <circle cx="28" cy="74" r="1.2" fill="#C9918A" opacity="0.3"/>
+            <circle cx="68" cy="42" r="1" fill="#C9918A" opacity="0.25"/>
+
+            <!-- Subtle spiral path -->
+            <path d="M40 56 Q 50 48 46 38 Q 42 28 30 32 Q 20 36 22 48 Q 24 58 36 64 Q 48 68 58 60 Q 66 52 62 38 Q 58 24 44 18" stroke="#C4704B" stroke-width="0.4" fill="none" opacity="0.1"/>
+
+            <!-- Small wisps on closest seeds -->
+            <line x1="48" y1="45" x2="50" y2="40" stroke="#C4704B" stroke-width="0.5" opacity="0.3"/>
+            <line x1="32" y1="41" x2="30" y2="36" stroke="#C4704B" stroke-width="0.5" opacity="0.25"/>
+          </g>
+
+          <!-- Text to the right -->
+          <text x="110" y="55" font-family="DM Serif Display, serif" font-size="20" fill="#2D2A26">the dandelion</text>
+          <text x="110" y="78" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#C4704B" letter-spacing="4.5">EFFECT</text>
+
+          <!-- Subtle tagline -->
+          <text x="110" y="100" font-family="Inter, sans-serif" font-size="7.5" fill="#8A8178" letter-spacing="2">CHANGE THAT SPREADS</text>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2D — The Spiral</h3>
+        <p>Seeds spiralling outward from a single source. Organic, natural movement. Feels like watching it happen in slow motion. Tagline: "Change that spreads."</p>
+      </div>
+    </div>
+
+    <!-- VARIATION 2E: Bold & Compact -->
+    <div class="card">
+      <div class="logo-area bg-green">
+        <svg width="260" height="140" viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Compact version — seeds clustered tightly, bold text -->
+          <!-- Tight seed cluster to the left -->
+          <g transform="translate(22, 30)">
+            <!-- Core -->
+            <circle cx="24" cy="40" r="5.5" fill="#C4704B"/>
+            <!-- Close seeds -->
+            <circle cx="14" cy="28" r="4" fill="#C4704B" opacity="0.85"/>
+            <circle cx="36" cy="26" r="3.5" fill="#C4704B" opacity="0.75"/>
+            <circle cx="8" cy="42" r="3" fill="#C9918A" opacity="0.6"/>
+            <circle cx="38" cy="48" r="2.5" fill="#C9918A" opacity="0.5"/>
+            <circle cx="22" cy="18" r="2.5" fill="#C4704B" opacity="0.65"/>
+            <!-- Breaking away -->
+            <circle cx="44" cy="14" r="2" fill="#C9918A" opacity="0.4"/>
+            <circle cx="4" cy="18" r="1.8" fill="#C9918A" opacity="0.35"/>
+            <circle cx="48" cy="36" r="1.5" fill="#C9918A" opacity="0.3"/>
+            <circle cx="50" cy="6" r="1.2" fill="#C9918A" opacity="0.2"/>
+          </g>
+
+          <!-- Bold text to the right -->
+          <text x="98" y="60" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#FAF7F2" letter-spacing="0.5">The Dandelion</text>
+          <text x="98" y="86" font-family="Playfair Display, serif" font-size="26" font-weight="700" fill="#FAF7F2" letter-spacing="0.5">Effect</text>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2E — Bold & Warm</h3>
+        <p>Tighter cluster of seeds with bolder typography. Confident. No tagline, no explanation — just the name and the energy. Strong on the deep green.</p>
+      </div>
+    </div>
+
+    <!-- VARIATION 2F: Horizontal Banner -->
+    <div class="card wide">
+      <div class="logo-area bg-white" style="min-height: 140px;">
+        <svg width="500" height="100" viewBox="0 0 500 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Wide horizontal banner logo — seeds scattered across full width -->
+          <!-- Source on far left -->
+          <circle cx="28" cy="50" r="5" fill="#3A5A40"/>
+          <line x1="28" y1="55" x2="28" y2="72" stroke="#3A5A40" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Seeds scattered across, getting smaller -->
+          <circle cx="50" cy="38" r="3.5" fill="#C4704B" opacity="0.9"/>
+          <line x1="50" y1="35" x2="48" y2="28" stroke="#C4704B" stroke-width="0.6" opacity="0.4"/>
+          <line x1="50" y1="35" x2="53" y2="29" stroke="#C4704B" stroke-width="0.6" opacity="0.3"/>
+
+          <circle cx="76" cy="28" r="2.8" fill="#C4704B" opacity="0.7"/>
+          <line x1="76" y1="25" x2="74" y2="19" stroke="#C4704B" stroke-width="0.5" opacity="0.3"/>
+          <line x1="76" y1="25" x2="79" y2="20" stroke="#C4704B" stroke-width="0.5" opacity="0.25"/>
+
+          <circle cx="100" cy="22" r="2" fill="#C9918A" opacity="0.5"/>
+          <circle cx="56" cy="60" r="2" fill="#C9918A" opacity="0.4"/>
+
+          <!-- Text centred -->
+          <text x="140" y="44" font-family="DM Serif Display, serif" font-size="28" fill="#2D2A26" letter-spacing="1">the dandelion</text>
+          <text x="380" y="44" font-family="DM Serif Display, serif" font-size="28" fill="#C4704B" letter-spacing="1">effect</text>
+
+          <!-- Line separator -->
+          <line x1="140" y1="56" x2="460" y2="56" stroke="#E4C5C0" stroke-width="1"/>
+
+          <!-- Tagline underneath -->
+          <text x="140" y="72" font-family="Inter, sans-serif" font-size="9" fill="#8A8178" letter-spacing="3">MINDSET. STRENGTH. COMMUNITY.</text>
+
+          <!-- More seeds drifting on the far right -->
+          <circle cx="430" cy="24" r="2.2" fill="#C9918A" opacity="0.35"/>
+          <circle cx="460" cy="18" r="1.5" fill="#C9918A" opacity="0.25"/>
+          <circle cx="480" cy="30" r="1.8" fill="#C4704B" opacity="0.3"/>
+          <circle cx="470" cy="76" r="1.2" fill="#C9918A" opacity="0.2"/>
+          <circle cx="490" cy="50" r="1" fill="#C9918A" opacity="0.15"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2F — The Full Banner</h3>
+        <p>Wide format for website headers and social banners. Seeds on both sides framing the name. "Effect" in terracotta. Tagline below: "Mindset. Strength. Community." Clean and premium.</p>
+      </div>
+    </div>
+
+    <!-- BONUS: Icon-only versions for favicons/social -->
+    <div class="section-label">Matching Icons — for favicons, social profiles & app icons</div>
+
+    <div class="card">
+      <div class="logo-area bg-cream" style="gap: 3rem;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Circle icon version -->
+          <circle cx="40" cy="40" r="38" fill="#3A5A40"/>
+          <!-- Seeds inside circle -->
+          <circle cx="40" cy="44" r="4.5" fill="#C4704B"/>
+          <circle cx="30" cy="34" r="3.5" fill="#C4704B" opacity="0.85"/>
+          <circle cx="50" cy="32" r="3" fill="#C4704B" opacity="0.7"/>
+          <circle cx="36" cy="24" r="2.5" fill="#C9918A" opacity="0.6"/>
+          <circle cx="48" cy="22" r="2" fill="#C9918A" opacity="0.45"/>
+          <circle cx="40" cy="16" r="1.5" fill="#C9918A" opacity="0.3"/>
+          <circle cx="26" cy="44" r="2" fill="#C9918A" opacity="0.4"/>
+          <circle cx="54" cy="42" r="1.8" fill="#C9918A" opacity="0.35"/>
+          <!-- Stem hint -->
+          <line x1="40" y1="49" x2="40" y2="62" stroke="#FAF7F2" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Square rounded icon -->
+          <rect x="2" y="2" width="76" height="76" rx="16" fill="#FAF7F2" stroke="#E4C5C0" stroke-width="1.5"/>
+          <!-- Seeds -->
+          <circle cx="40" cy="44" r="4.5" fill="#3A5A40"/>
+          <circle cx="30" cy="34" r="3.2" fill="#C4704B" opacity="0.9"/>
+          <circle cx="50" cy="30" r="2.8" fill="#C4704B" opacity="0.75"/>
+          <circle cx="38" cy="24" r="2.2" fill="#C4704B" opacity="0.6"/>
+          <circle cx="52" cy="20" r="1.8" fill="#C9918A" opacity="0.45"/>
+          <circle cx="26" cy="26" r="1.5" fill="#C9918A" opacity="0.35"/>
+          <circle cx="44" cy="16" r="1.2" fill="#C9918A" opacity="0.25"/>
+          <!-- Stem -->
+          <line x1="40" y1="49" x2="40" y2="62" stroke="#3A5A40" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+        </svg>
+
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Minimal icon — just seeds, no container -->
+          <circle cx="40" cy="48" r="5.5" fill="#3A5A40"/>
+          <line x1="40" y1="54" x2="40" y2="72" stroke="#3A5A40" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="34" cy="34" r="3.5" fill="#C4704B"/>
+          <circle cx="50" cy="30" r="3" fill="#C4704B" opacity="0.75"/>
+          <circle cx="40" cy="22" r="2.5" fill="#C4704B" opacity="0.6"/>
+          <circle cx="28" cy="24" r="2" fill="#C9918A" opacity="0.45"/>
+          <circle cx="54" cy="20" r="1.8" fill="#C9918A" opacity="0.35"/>
+          <circle cx="44" cy="12" r="1.5" fill="#C9918A" opacity="0.25"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Matching Icons</h3>
+        <p>Three icon formats for any context: dark circle (Instagram profile), light rounded square (favicon/app), and minimal mark (watermark). All use the same seed scatter pattern.</p>
+      </div>
+    </div>
+
+    <!-- Usage mockup -->
+    <div class="card">
+      <div class="logo-area bg-dark" style="flex-direction: column; gap: 1.5rem; padding: 2rem;">
+        <!-- Simulated header bar -->
+        <div style="width: 100%; display: flex; align-items: center; justify-content: space-between;">
+          <svg width="160" height="30" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Mini version for header -->
+            <circle cx="10" cy="15" r="3.5" fill="#C4704B"/>
+            <circle cx="5" cy="9" r="2" fill="#C4704B" opacity="0.6"/>
+            <circle cx="16" cy="8" r="1.5" fill="#C9918A" opacity="0.4"/>
+            <circle cx="3" cy="16" r="1.2" fill="#C9918A" opacity="0.3"/>
+            <text x="26" y="19" font-family="DM Serif Display, serif" font-size="14" fill="#FAF7F2">the dandelion effect</text>
+          </svg>
+          <svg width="60" height="20" viewBox="0 0 60 20" fill="none">
+            <rect x="0" y="3" width="60" height="14" rx="3" fill="#C4704B"/>
+            <text x="30" y="14" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="#fff" text-anchor="middle" letter-spacing="0.5">JOIN NOW</text>
+          </svg>
+        </div>
+        <!-- Separator -->
+        <div style="width: 100%; height: 1px; background: rgba(255,255,255,0.1);"></div>
+        <!-- Body text hint -->
+        <div style="text-align: center;">
+          <text style="font-family: DM Serif Display, serif; font-size: 16px; color: #FAF7F2;">You've been strong for everyone else.</text>
+          <br>
+          <text style="font-family: Inter, sans-serif; font-size: 10px; color: rgba(255,255,255,0.4); letter-spacing: 1px;">NOW IT'S YOUR TURN</text>
+        </div>
+      </div>
+      <div class="card-info">
+        <h3>In Context</h3>
+        <p>How the compact version sits in a website header bar. Seeds as the icon mark, full name alongside, CTA button to the right. Exactly how it'd look on the live site.</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
