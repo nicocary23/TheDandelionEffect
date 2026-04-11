@@ -14,21 +14,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* --- Mobile Navigation Toggle --- */
   const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav');
+  const navMenu = document.querySelector('#nav');
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
-      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    // Create backdrop overlay for closing nav by tapping outside
+    const backdrop = document.createElement('div');
+    backdrop.classList.add('nav-backdrop');
+    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:1000;opacity:0;visibility:hidden;transition:all 0.3s;';
+    document.body.appendChild(backdrop);
+
+    function openNav() {
+      navToggle.classList.add('open');
+      navMenu.classList.add('open');
+      backdrop.style.opacity = '1';
+      backdrop.style.visibility = 'visible';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeNav() {
+      navToggle.classList.remove('open');
+      navMenu.classList.remove('open');
+      backdrop.style.opacity = '0';
+      backdrop.style.visibility = 'hidden';
+      document.body.style.overflow = '';
+    }
+
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (navMenu.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
     });
+
+    // Close nav when backdrop is tapped
+    backdrop.addEventListener('click', closeNav);
 
     // Close nav when a link is clicked
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
+      link.addEventListener('click', closeNav);
+    });
+
+    // Close nav on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        closeNav();
+      }
+    });
+
+    // Close nav if window is resized above mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900 && navMenu.classList.contains('open')) {
+        closeNav();
+      }
     });
   }
 
