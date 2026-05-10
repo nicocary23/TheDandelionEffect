@@ -1077,6 +1077,11 @@ li.audience-item.x-mark svg {
   margin-top: 1rem;
 }
 
+.price-tag p.price-note--payment {
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
 .pricing-content {
   max-width: 800px;
   margin: 0 auto;
