@@ -139,6 +139,56 @@ section {
   color: #fff;
 }
 
+/* ============================================
+   BUTTON CONTRAST OVERRIDES — when buttons sit on a coloured hero
+   or a coloured CTA section, the brand-colour button vanishes.
+   Switch to white-on-colour for primary and white-bordered for outline.
+   ============================================ */
+section.hero.hero--programme .btn--primary,
+section.hero.hero--about .btn--primary,
+section.hero.hero--membership .btn--primary,
+section.section--green .btn--primary {
+  background: #fff;
+  color: var(--dark-text);
+}
+section.hero.hero--programme .btn--primary:hover,
+section.hero.hero--about .btn--primary:hover,
+section.hero.hero--membership .btn--primary:hover,
+section.section--green .btn--primary:hover {
+  background: var(--warm-cream);
+  color: var(--dark-text);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+}
+
+section.hero.hero--programme .btn--outline,
+section.hero.hero--about .btn--outline,
+section.hero.hero--membership .btn--outline,
+section.section--green .btn--outline {
+  border-color: rgba(255,255,255,0.85);
+  color: #fff;
+  background: transparent;
+}
+section.hero.hero--programme .btn--outline:hover,
+section.hero.hero--about .btn--outline:hover,
+section.hero.hero--membership .btn--outline:hover,
+section.section--green .btn--outline:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Center final-CTA content on coloured sections so h2 + subtitle + button align as one block. */
+section.section--green > .container,
+section.section--green > .container > * {
+  text-align: center;
+}
+section.section--green .cta-subtitle {
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255,255,255,0.85);
+}
+
 .btn--large {
   padding: 1.2rem 3rem;
   font-size: 1.05rem;
@@ -1625,7 +1675,7 @@ footer.footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.4fr;
   gap: 3rem;
   margin-bottom: 2.5rem;
 }
