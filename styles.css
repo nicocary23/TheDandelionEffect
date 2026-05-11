@@ -1407,27 +1407,36 @@ li.audience-item.x-mark::before {
 
 /* Price Tag Section */
 .price-tag {
-  background: var(--warm-cream);
+  background: #fff;
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem 2.5rem 2rem;
   text-align: center;
-  margin: 2rem 0;
+  margin: 0 auto 1.75rem;
+  width: 100%;
+  max-width: 680px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+}
+
+.price-tag p.price-note {
+  max-width: 50ch;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .price-tag .price-original {
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .price-tag .price-original span.original {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   text-decoration: line-through;
   color: var(--warm-grey);
 }
 
 .price-tag .price-current {
   display: block;
-  margin: 0.5rem 0;
+  margin: 0;
 }
 
 .price-tag .price-current span.current {
