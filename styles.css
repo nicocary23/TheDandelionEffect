@@ -541,22 +541,29 @@ section.section--green p {
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .section-header h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .section-header p.section-subtext {
   margin: 0 auto;
   color: var(--light-text);
   font-size: 1.1rem;
+  line-height: 1.75;
+  max-width: 56ch;
 }
 
 h2.section-title {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+@media (max-width: 600px) {
+  .section-header { margin-bottom: 2.5rem; }
+  h2.section-title { margin-bottom: 2.25rem; }
 }
 
 /* ============================================
@@ -569,25 +576,57 @@ h2.section-title {
   align-items: center;
 }
 
+/* Image blocks — when real photos aren't loaded, render a tasteful gradient
+   panel with a faint dandelion-seed motif so the layout still feels intentional. */
 .story-image {
   aspect-ratio: 4/5;
-  background: var(--dusty-rose-light);
-  border-radius: 8px;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(196,112,75,0.10) 0%, transparent 60%),
+    radial-gradient(circle at 75% 75%, rgba(58,90,64,0.08) 0%, transparent 55%),
+    linear-gradient(135deg, var(--warm-cream) 0%, var(--dusty-rose-light) 100%);
+  border-radius: 12px;
   overflow: hidden;
   position: relative;
 }
 
+.story-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'><circle cx='50' cy='52' r='6' fill='%23C4704B' opacity='0.35'/><circle cx='62' cy='38' r='4.5' fill='%23C4704B' opacity='0.30'/><circle cx='38' cy='37' r='4.2' fill='%23C4704B' opacity='0.28'/><circle cx='66' cy='22' r='3.6' fill='%23C9918A' opacity='0.26'/><circle cx='28' cy='44' r='3.3' fill='%23C9918A' opacity='0.22'/><circle cx='62' cy='66' r='3' fill='%23C9918A' opacity='0.22'/><circle cx='73' cy='13' r='2.7' fill='%23C9918A' opacity='0.18'/><circle cx='18' cy='24' r='2.4' fill='%23C9918A' opacity='0.16'/><circle cx='74' cy='50' r='2.1' fill='%23C4704B' opacity='0.18'/><circle cx='30' cy='66' r='1.8' fill='%23C9918A' opacity='0.16'/></svg>");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  pointer-events: none;
+}
+
+/* Visually hide the "Photo of Pippa" placeholder text (kept for screen readers) */
 .story-image .placeholder-photo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  color: var(--warm-grey);
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(145deg, var(--dusty-rose-light), var(--warm-cream));
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* On the About long-form page: collapse the 5 stacked image blocks into small,
+   tasteful section breaks rather than 5 giant portrait rectangles. */
+.story-full .story-image {
+  aspect-ratio: auto;
+  height: 72px;
+  background: transparent;
+  border-radius: 0;
+  margin: 3rem auto;
+  max-width: 200px;
+}
+
+.story-full .story-image::after {
+  background-size: 60%;
+  opacity: 0.7;
 }
 
 .story-content h2 {
@@ -616,8 +655,60 @@ a.link-arrow:hover {
 }
 
 .story-full {
-  max-width: 780px;
+  max-width: 720px;
   margin: 0 auto;
+}
+
+/* Long-form editorial rhythm — generous spacing, readable measure, clear section breaks */
+.story-full p {
+  font-size: 1.075rem;
+  line-height: 1.85;
+  color: var(--mid-text);
+  margin: 0 0 1.5rem;
+  max-width: 64ch;
+}
+
+.story-full p:last-child {
+  margin-bottom: 0;
+}
+
+.story-full h3 {
+  margin: 4rem 0 1.5rem;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.25;
+  color: var(--dark-text);
+}
+
+.story-full h3:first-of-type {
+  margin-top: 0;
+}
+
+.story-full .story-image {
+  margin: 3rem 0;
+}
+
+/* Drop cap on the very first paragraph for editorial polish */
+.story-full > p:first-of-type::first-letter {
+  font-family: var(--font-serif);
+  font-size: 3.6rem;
+  float: left;
+  line-height: 0.9;
+  padding: 0.4rem 0.6rem 0 0;
+  color: var(--terracotta);
+}
+
+@media (max-width: 600px) {
+  .story-full p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .story-full h3 {
+    margin: 2.75rem 0 1rem;
+  }
+  .story-full > p:first-of-type::first-letter {
+    font-size: 2.8rem;
+  }
 }
 
 .story-grid--small {
@@ -1044,11 +1135,11 @@ li.audience-item.x-mark::before {
 
 .week-card {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  padding: 2rem 0;
+  grid-template-columns: 60px 1fr;
+  column-gap: 1.75rem;
+  row-gap: 0.4rem;
+  padding: 2.25rem 0;
   border-bottom: 1px solid var(--dusty-rose-light);
-  align-items: start;
 }
 
 .week-card:last-child {
@@ -1056,6 +1147,8 @@ li.audience-item.x-mark::before {
 }
 
 .week-number {
+  grid-column: 1;
+  grid-row: 1 / span 2;
   width: 60px;
   height: 60px;
   background: var(--warm-cream);
@@ -1064,19 +1157,42 @@ li.audience-item.x-mark::before {
   align-items: center;
   justify-content: center;
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--terracotta);
   flex-shrink: 0;
   font-weight: 600;
+  align-self: start;
+  margin-top: 0.2rem;
 }
 
 .week-card h3.week-title {
-  margin-bottom: 0.5rem;
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0 0 0.1rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  line-height: 1.25;
 }
 
 .week-card p.week-description {
-  font-size: 0.95rem;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 1rem;
+  line-height: 1.7;
   margin: 0;
+  max-width: 56ch;
+}
+
+@media (max-width: 768px) {
+  .week-card {
+    grid-template-columns: 48px 1fr;
+    column-gap: 1.25rem;
+    padding: 1.75rem 0;
+  }
+  .week-number {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
 }
 
 .week-card.checkpoint {
