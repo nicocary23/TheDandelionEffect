@@ -50,22 +50,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close nav when backdrop is tapped
     backdrop.addEventListener('click', closeNav);
 
-    // When a nav link is tapped: close the drawer, then navigate explicitly.
-    // (On iOS Safari, the click + closeNav + body overflow reset sometimes
-    // races with the browser's own navigation and kills the link. Doing it
-    // ourselves is reliable.)
+    // When a nav link is tapped: navigate IMMEDIATELY, then clean up the open state.
+    // On iOS Safari, the original close-first-then-let-browser-navigate pattern
+    // is unreliable — the body-overflow reset races the link's default action.
+    // We force navigation synchronously so it can't be cancelled by anything else.
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
-        // External links / mailto / tel / anchors-on-same-page: just close, let default fire
+        // External / mailto / tel / target=_blank / in-page anchor: default behaviour, just close
         if (!href || href === '#' || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') {
           closeNav();
           return;
         }
-        // Internal page navigation: do it ourselves
+        // Same-origin page: navigate immediately. Clean up state synchronously first.
         e.preventDefault();
-        closeNav();
-        setTimeout(() => { window.location.href = href; }, 80);
+        document.body.style.overflow = '';
+        navToggle.classList.remove('open');
+        navMenu.classList.remove('open');
+        navMenu.style.transition = 'none';
+        backdrop.style.transition = 'none';
+        backdrop.style.opacity = '0';
+        backdrop.style.visibility = 'hidden';
+        // Force the navigation. assign() blocks until the navigation starts.
+        window.location.assign(href);
       });
     });
 

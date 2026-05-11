@@ -177,12 +177,13 @@ section.section--green .btn--outline:hover {
   color: #fff;
 }
 
-/* Center final-CTA content on coloured sections so h2 + subtitle + button align as one block. */
-section.section--green > .container,
-section.section--green > .container > * {
+/* Center final-CTA content on coloured sections so h2 + subtitle + button align as one block.
+   Scoped to non-hero green sections only — the community hero uses section--green and must stay left-aligned. */
+section.section--green:not(.hero) > .container,
+section.section--green:not(.hero) > .container > * {
   text-align: center;
 }
-section.section--green .cta-subtitle {
+section.section--green:not(.hero) .cta-subtitle {
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
