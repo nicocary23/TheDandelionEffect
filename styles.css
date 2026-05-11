@@ -381,7 +381,9 @@ button.nav-toggle {
 }
 
 @media (max-width: 900px) {
-  .nav-toggle { display: flex; }
+  /* Specificity must match `button.nav-toggle` from the base rule,
+     otherwise this override loses and the burger stays display:none. */
+  button.nav-toggle { display: flex; }
 
   /* Hide the header CTA on mobile to save space */
   .header-cta { display: none; }
@@ -1569,9 +1571,11 @@ article.blog-card:hover {
    ============================================ */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 5rem;
   align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .contact-info h2 {
