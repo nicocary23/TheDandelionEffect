@@ -581,10 +581,16 @@ section.section--green {
   color: #fff;
 }
 
+section.section--green h1,
 section.section--green h2,
 section.section--green h3,
 section.section--green p {
   color: #fff;
+}
+
+/* The community hero's eyebrow needs a softer warm tint instead of pure terracotta-on-green */
+section.section--green .eyebrow {
+  color: var(--dusty-rose-light);
 }
 
 section.section--green p {
@@ -739,15 +745,7 @@ a.link-arrow:hover {
   margin: 3rem 0;
 }
 
-/* Drop cap on the very first paragraph for editorial polish */
-.story-full > p:first-of-type::first-letter {
-  font-family: var(--font-serif);
-  font-size: 3.6rem;
-  float: left;
-  line-height: 0.9;
-  padding: 0.4rem 0.6rem 0 0;
-  color: var(--terracotta);
-}
+/* (Drop cap removed — reads as a layout glitch rather than editorial polish) */
 
 @media (max-width: 600px) {
   .story-full p {
@@ -757,9 +755,6 @@ a.link-arrow:hover {
   }
   .story-full h3 {
     margin: 2.75rem 0 1rem;
-  }
-  .story-full > p:first-of-type::first-letter {
-    font-size: 2.8rem;
   }
 }
 

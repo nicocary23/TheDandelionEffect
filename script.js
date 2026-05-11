@@ -50,9 +50,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close nav when backdrop is tapped
     backdrop.addEventListener('click', closeNav);
 
-    // Close nav when a link is clicked
+    // When a nav link is tapped: close the drawer, then navigate explicitly.
+    // (On iOS Safari, the click + closeNav + body overflow reset sometimes
+    // races with the browser's own navigation and kills the link. Doing it
+    // ourselves is reliable.)
     navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeNav);
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        // External links / mailto / tel / anchors-on-same-page: just close, let default fire
+        if (!href || href === '#' || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') {
+          closeNav();
+          return;
+        }
+        // Internal page navigation: do it ourselves
+        e.preventDefault();
+        closeNav();
+        setTimeout(() => { window.location.href = href; }, 80);
+      });
     });
 
     // Close nav on Escape key
