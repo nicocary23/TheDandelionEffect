@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=202605111755">
+  <link rel="stylesheet" href="styles.css?v=202605111841">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
     <div class="container container--wide">
       <div class="header-content">
         <!-- Logo -->
-        <div class="logo">
+        <a href="index.html" class="logo" aria-label="The Dandelion Effect — Home">
           <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <!-- 2D Spiral: seeds spiralling outward -->
           <circle cx="12" cy="14" r="2" fill="#3A5A40"/>
@@ -52,7 +52,7 @@
           <path d="M12 13 Q 14 11 13.5 8.5 Q 13 6 9.5 7 Q 7 8 7.5 11 Q 8 13.5 10.5 15 Q 13 16.5 16 14.5 Q 18.5 12.5 17.5 8.5 Q 16.5 5 12.5 3.5" stroke="#C4704B" stroke-width="0.3" fill="none" opacity="0.15"/>
         </svg>
           <span class="logo-text">The Dandelion Effect</span>
-        </div>
+        </a>
 
         <!-- Navigation -->
         <nav class="nav" id="nav">
@@ -62,7 +62,6 @@
             <li><a href="programme.html" class="nav-link">Rebuild</a></li>
             <li><a href="membership.html" class="nav-link">Membership</a></li>
             <li><a href="community.html" class="nav-link">Community</a></li>
-            <li><a href="journal.html" class="nav-link active">Journal</a></li>
             <li><a href="contact.html" class="nav-link">Contact</a></li>
           </ul>
         </nav>
@@ -81,101 +80,16 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="section section--cream">
-    <div class="container container--narrow">
-      <div class="fade-in">
-        <h1>The Journal</h1>
-        <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1.5rem;">Thoughts on resilience, mindset, strength and what it really takes to rebuild.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG GRID -->
-  <section class="section section--white">
-    <div class="container container--narrow">
-      <div class="blog-grid fade-in">
-        <!-- Blog Card 1 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #C9918A 0%, #C4704B 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Mindset</span>
-            <h3><a href="#" class="blog-card-link">Why Mindset Is The One Thing Nobody Talks About In Fitness</a></h3>
-            <p>When you're rebuilding, the physical work is only half the battle. Your mind has to catch up.</p>
-          </div>
-        </article>
-
-        <!-- Blog Card 2 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #3A5A40 0%, #5A8A60 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Strength</span>
-            <h3><a href="#" class="blog-card-link">Counting Reps Saved My Life</a></h3>
-            <p>In the chaos, something as simple as counting reps became my anchor. A small act that changed everything.</p>
-          </div>
-        </article>
-
-        <!-- Blog Card 3 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #C4704B 0%, #A8563F 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Resilience</span>
-            <h3><a href="#" class="blog-card-link">What 22 Years in the Police Taught Me About Showing Up</a></h3>
-            <p>Two decades of duty, then life flipped. Here's what I learned about staying strong when everything falls apart.</p>
-          </div>
-        </article>
-
-        <!-- Blog Card 4 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #C9918A 0%, #D4A39A 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Community</span>
-            <h3><a href="#" class="blog-card-link">Why Women Over 40 Need More Than a Gym Programme</a></h3>
-            <p>The world tries to reduce us to reps and routines. We're so much more. Here's why community matters most.</p>
-          </div>
-        </article>
-
-        <!-- Blog Card 5 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #3A5A40 0%, #2A4A30 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Recovery</span>
-            <h3><a href="#" class="blog-card-link">Burnout Is Not A Badge Of Honour</a></h3>
-            <p>We've been trained to wear burnout like a medal. It's time to call it what it really is — a warning sign.</p>
-          </div>
-        </article>
-
-        <!-- Blog Card 6 -->
-        <article class="blog-card">
-          <div class="blog-card-image" style="background: linear-gradient(135deg, #C4704B 0%, #B5604F 100%);"></div>
-          <div class="blog-card-body">
-            <span class="blog-tag">Mindset</span>
-            <h3><a href="#" class="blog-card-link">The Day I Stopped Apologising For Choosing Myself</a></h3>
-            <p>Permission isn't given. It's taken. Here's the moment I stopped asking and started owning my own choices.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="section section--cream">
+  <section class="section section--cream" style="min-height: 60vh; display: flex; align-items: center;">
     <div class="container container--narrow">
       <div class="fade-in" style="text-align: center;">
-        <h2>Want to read more?</h2>
-        <p style="font-size: 1.1rem; margin: 1.5rem 0 2rem 0;">Subscribe to get new journal entries delivered to your inbox.</p>
-        <form class="optin-form" data-action="newsletter" style="max-width: 400px; margin: 0 auto;">
-          <div class="form-row" style="gap: 1rem;">
-            <input
-              type="email"
-              name="email"
-              placeholder="your@email.com"
-              class="form-input"
-              required
-              aria-label="Your email address"
-            >
-            <button type="submit" class="btn btn--primary">Subscribe</button>
-          </div>
-        </form>
+        <div class="eyebrow">THE JOURNAL</div>
+        <h1>Words are coming.</h1>
+        <p style="font-size: 1.15rem; line-height: 1.8; margin: 1.75rem auto 0; max-width: 56ch;">Long-form pieces on mindset, strength and rebuilding will live here. For now, the real conversation is happening inside the Community.</p>
+        <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="membership.html#community" class="btn btn--primary btn--large">Join the Community</a>
+          <a href="about.html" class="btn btn--outline btn--large">Read Pippa's story</a>
+        </div>
       </div>
     </div>
   </section>
@@ -214,7 +128,6 @@
             <li><a href="programme.html">Rebuild</a></li>
             <li><a href="membership.html">Membership</a></li>
             <li><a href="community.html">Community</a></li>
-            <li><a href="journal.html">Journal</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -224,8 +137,8 @@
           <h4>Connect</h4>
           <ul class="footer-links">
             <li><a href="https://www.instagram.com/thedandelion_effect" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="https://chat.whatsapp.com/C0TFav1SUys0M8zFWXb45J?mode=gi_t" target="_blank" rel="noopener noreferrer">WhatsApp Community</a></li>
-            <li><a href="https://calendly.com/pippawilson15/30min" target="_blank" rel="noopener noreferrer">Book a Call</a></li>
+            <li><a href="membership.html#community">Community Membership</a></li>
+            <li><a href="https://calendly.com/pippawilson15/60min" target="_blank" rel="noopener noreferrer">Book a Call</a></li>
             <li><a href="mailto:pippa@dandelioneffect.co.uk">Email</a></li>
           </ul>
         </div>
@@ -256,6 +169,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="script.js?v=202605111755"></script>
+  <script src="script.js?v=202605111841"></script>
 </body>
 </html>
