@@ -708,6 +708,35 @@ h2.section-title {
   border: 0;
 }
 
+/* When a real photo is in the .story-image, drop the gradient placeholder and motif.
+   Listing both selectors so we beat `.story-full .story-image::after` specificity on the about page. */
+.story-image:has(img),
+.story-full .story-image:has(img) {
+  background: none;
+}
+.story-image:has(img)::after,
+.story-full .story-image:has(img)::after {
+  display: none;
+}
+.story-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Landscape variant for editorial photos in the long-form story */
+.story-full .story-image--landscape {
+  aspect-ratio: 16/10;
+  height: auto;
+  max-width: 100%;
+  margin: 3rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* On the About long-form page: collapse the 5 stacked image blocks into small,
    tasteful section breaks rather than 5 giant portrait rectangles. */
 .story-full .story-image {

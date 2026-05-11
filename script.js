@@ -154,15 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* --- Stripe Payment Placeholder --- */
-  document.querySelectorAll('[data-stripe]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      // In production, replace with Stripe Checkout redirect
-      // e.g. stripe.redirectToCheckout({ sessionId: '...' })
-      alert('This will redirect to Stripe Checkout in production. Replace this with your Stripe integration.');
-    });
-  });
+  /* (Stripe payment buttons are now real <a href="https://buy.stripe.com/..."> links,
+     no JS handler needed — they navigate to Stripe Checkout directly.) */
 
   /* --- Smooth scroll for anchor links --- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
