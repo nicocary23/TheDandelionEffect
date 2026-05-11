@@ -12,82 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* --- Mobile Navigation Toggle --- */
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('#nav');
-  if (navToggle && navMenu) {
-    // Create backdrop overlay for closing nav by tapping outside
-    const backdrop = document.createElement('div');
-    backdrop.classList.add('nav-backdrop');
-    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:1000;opacity:0;visibility:hidden;transition:all 0.3s;';
-    document.body.appendChild(backdrop);
-
-    function openNav() {
-      navToggle.classList.add('open');
-      navMenu.classList.add('open');
-      backdrop.style.opacity = '1';
-      backdrop.style.visibility = 'visible';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeNav() {
-      navToggle.classList.remove('open');
-      navMenu.classList.remove('open');
-      backdrop.style.opacity = '0';
-      backdrop.style.visibility = 'hidden';
-      document.body.style.overflow = '';
-    }
-
-    navToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (navMenu.classList.contains('open')) {
-        closeNav();
-      } else {
-        openNav();
-      }
-    });
-
-    // Close nav when backdrop is tapped
-    backdrop.addEventListener('click', closeNav);
-
-    // When a nav link is tapped: navigate IMMEDIATELY, then clean up the open state.
-    // On iOS Safari, the original close-first-then-let-browser-navigate pattern
-    // is unreliable — the body-overflow reset races the link's default action.
-    // We force navigation synchronously so it can't be cancelled by anything else.
-    navMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href');
-        // External / mailto / tel / target=_blank / in-page anchor: default behaviour, just close
-        if (!href || href === '#' || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || link.target === '_blank') {
-          closeNav();
-          return;
-        }
-        // Same-origin page: navigate immediately. Clean up state synchronously first.
-        e.preventDefault();
-        document.body.style.overflow = '';
-        navToggle.classList.remove('open');
-        navMenu.classList.remove('open');
-        navMenu.style.transition = 'none';
-        backdrop.style.transition = 'none';
-        backdrop.style.opacity = '0';
-        backdrop.style.visibility = 'hidden';
-        // Force the navigation. assign() blocks until the navigation starts.
-        window.location.assign(href);
-      });
-    });
-
-    // Close nav on Escape key
+  /* --- Mobile Navigation Toggle ---
+     The mobile menu is now CSS-only (hidden checkbox + label burger).
+     We add ZERO click handlers on nav links so the browser's native
+     navigation can't be interfered with. Tapping a link just navigates.
+     A small Escape-key helper unchecks the checkbox for keyboard users. */
+  const menuState = document.getElementById('menu-state');
+  if (menuState) {
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
-        closeNav();
-      }
-    });
-
-    // Close nav if window is resized above mobile breakpoint
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 900 && navMenu.classList.contains('open')) {
-        closeNav();
-      }
+      if (e.key === 'Escape' && menuState.checked) menuState.checked = false;
     });
   }
 

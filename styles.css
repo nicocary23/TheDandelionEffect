@@ -349,8 +349,18 @@ nav.nav {
   flex-shrink: 0;
 }
 
-/* Mobile nav toggle */
-button.nav-toggle {
+/* Mobile menu — CSS-only toggle via hidden checkbox.
+   No JavaScript means nothing can interfere with the navigation links. */
+.menu-state {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  /* keep it accessible but visually hidden */
+}
+
+.nav-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -364,9 +374,8 @@ button.nav-toggle {
   cursor: pointer;
   position: relative;
   -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: none;
-  appearance: none;
   touch-action: manipulation;
+  user-select: none;
 }
 
 .nav-toggle span {
@@ -378,19 +387,16 @@ button.nav-toggle {
   transform-origin: center;
 }
 
-.nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-toggle.open span:nth-child(2) { opacity: 0; }
-.nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+/* When the hidden checkbox is checked, morph the burger into an X */
+.menu-state:checked ~ .nav-toggle span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.menu-state:checked ~ .nav-toggle span:nth-child(2) { opacity: 0; }
+.menu-state:checked ~ .nav-toggle span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* Mobile nav overlay backdrop */
-.nav-overlay {
-  display: none;
-}
+/* Backdrop is hidden on desktop (no mobile menu shown) */
+.nav-backdrop { display: none; }
 
 @media (max-width: 900px) {
-  /* Specificity must match `button.nav-toggle` from the base rule,
-     otherwise this override loses and the burger stays display:none. */
-  button.nav-toggle { display: flex; }
+  .nav-toggle { display: flex; }
 
   /* Hide the header CTA on mobile to save space */
   .header-cta { display: none; }
@@ -416,8 +422,32 @@ button.nav-toggle {
     transition: transform 0.4s var(--ease);
   }
 
-  nav.nav.open {
+  /* When the checkbox is checked, the nav (which is a later DOM sibling) slides in */
+  .menu-state:checked ~ nav.nav {
     transform: translateX(0);
+  }
+
+  /* Body scroll lock when the menu is open */
+  body:has(.menu-state:checked) {
+    overflow: hidden;
+  }
+
+  /* Clickable backdrop — tapping it toggles the checkbox off (closes the menu) */
+  .nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    cursor: pointer;
+  }
+
+  .menu-state:checked ~ .nav-backdrop {
+    opacity: 1;
+    visibility: visible;
   }
 
   .nav-list {
@@ -476,6 +506,12 @@ section.hero {
 
 section.hero.hero--home {
   background: linear-gradient(135deg, var(--warm-cream) 0%, var(--off-white) 50%, var(--dusty-rose-light) 100%);
+}
+
+/* Compact hero — for utility pages (Contact) where there's no buttons/decoration to fill 85vh */
+section.hero.hero--compact {
+  min-height: auto;
+  padding: calc(var(--section-pad) + 3rem) 0 var(--section-pad);
 }
 
 section.hero.hero--about {

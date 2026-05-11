@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=202605111913">
+    <link rel="stylesheet" href="styles.css?v=202605111936">
 </head>
 <body>
 <header class="header header--sticky">
@@ -31,7 +31,10 @@
         </svg>
         <span class="logo-text">The Dandelion Effect</span>
       </a>
-      <nav class="nav" id="nav">
+      
+        <input type="checkbox" id="menu-state" class="menu-state" aria-hidden="true">
+        <label for="menu-state" class="nav-backdrop" aria-hidden="true"></label>
+<nav class="nav" id="nav">
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
@@ -42,11 +45,7 @@
         </ul>
       </nav>
       <a href="programme.html" class="btn btn--primary btn--small header-cta">Start The Rebuild</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <label for="menu-state" class="nav-toggle" aria-label="Toggle navigation menu" tabindex="0"><span></span><span></span><span></span></label>
     </div>
   </div>
 </header>
@@ -239,6 +238,6 @@
   </div>
 </div>
 
-<script src="script.js?v=202605111913"></script>
+<script src="script.js?v=202605111936"></script>
 </body>
 </html>

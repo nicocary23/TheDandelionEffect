@@ -27,7 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=202605111913">
+  <link rel="stylesheet" href="styles.css?v=202605111936">
 </head>
 <body>
 
@@ -54,7 +54,10 @@
           <span class="logo-text">The Dandelion Effect</span>
         </a>
 
-        <!-- Navigation -->
+        
+        <input type="checkbox" id="menu-state" class="menu-state" aria-hidden="true">
+        <label for="menu-state" class="nav-backdrop" aria-hidden="true"></label>
+<!-- Navigation -->
         <nav class="nav" id="nav">
           <ul class="nav-list">
             <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -70,11 +73,7 @@
         <a href="programme.html" class="btn btn--primary btn--small header-cta">Start The Rebuild</a>
 
         <!-- Mobile Toggle -->
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+        <label for="menu-state" class="nav-toggle" aria-label="Toggle navigation menu" tabindex="0"><span></span><span></span><span></span></label>
       </div>
     </div>
   </header>
@@ -414,6 +413,6 @@
   </div>
 
   <!-- Scripts -->
-  <script src="script.js?v=202605111913"></script>
+  <script src="script.js?v=202605111936"></script>
 </body>
 </html>
